@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/UsbongSpecialParentLayout"
+    >
+	<TextView  
+	    style="@style/UsbongInstructionsTextView"
+	    android:text="@string/instructions_textfield_text"
+    />
+    <Button
+    	android:id="@+id/press_me_button"
+    	style="@style/UsbongButton"	
+    	android:text="Convert"	
+    />
+    <ScrollView style="@style/UsbongDefaultScrollView">		 	
+	<LinearLayout style="@style/UsbongDefaultMainLayout">
+		<TextView android:id="@+id/input_txt_textview"
+		    style="@style/UsbongDefaultTextView"	    	
+		    android:text="@string/default_textview" 
+		    android:layout_alignParentTop="true"	    			
+		/>
+	</LinearLayout>
+	</ScrollView>	    	        
+    <LinearLayout
+		style="@style/UsbongDefaultBackExitButtonLayout">	
+	    <Button android:id="@+id/back_button"
+		    style="@style/UsbongDefaultBackExitButton"
+		    android:text="@string/back"/>
+		    
+	   	<Button android:id="@+id/exit_button"
+		    style="@style/UsbongDefaultBackExitButton"
+		    android:text="@string/exit"/>	    
+	</LinearLayout>    
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/UsbongDefaultParentLayout"
+    >
+   	<ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/usbong_logo"
+        android:scaleType="fitXY"
+    />
+    <TextView
+		style="@style/UsbongInstructionsTextView"
+    	android:text="@string/file_chooser_textfield_text"/>		
+    
+    <Button
+    	android:id="@+id/file_chooser_button"
+    	style="@style/UsbongButton"	
+    	android:text="@string/file_chooser_button_text"	
+    />    
+</LinearLayout>
