@@ -57,6 +57,16 @@ public class Usbong4TheBlindUtils {
     	}    			
 		System.out.println(">>>> Leaving createUsbong4TheBlindFileStructure");
 	}	
+
+	//added by Mike, 1 May 2015
+	public static void deleteAudioOutput(String output_name) {
+    	File file = new File(BASE_FILE_PATH+myConvertedFilesDirectory+output_name);
+    	if (file.exists()) {
+    		if (file.length()<=0) {
+    			file.delete();    		
+    		}
+    	}
+	}
 	
     public static String readTextFileInAssetsFolder(Activity a, String filename) {
 		//READ A FILE

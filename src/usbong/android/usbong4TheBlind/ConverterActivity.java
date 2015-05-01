@@ -53,6 +53,8 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
     private Button backButton;
     private Button exitButton;    
     
+    private String audio_output;
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
 		gotoFileChooserMainActivityIntent = new Intent().setClass(this, FileChooserMainActivity.class);						
 
         Usbong4TheBlindUtils.generateTimeStamp();
+        audio_output = "output" + Usbong4TheBlindUtils.getTimeStamp() +".3gp";
         
         //check if a TTS engine is installed
         Intent checkIntent = new Intent();
@@ -127,6 +130,15 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
 		}
 	}
 	
+    //added by Mike, April 14, 2015
+    @Override
+	public void onBackPressed() {
+		Usbong4TheBlindUtils.deleteAudioOutput(audio_output); //added by Mike, 1 May 2015
+		mTts.stop(); //added by Mike, 1 May 2015
+		finish();
+		startActivity(gotoFileChooserMainActivityIntent);
+    }
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -168,8 +180,10 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
     	backButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Usbong4TheBlindUtils.deleteAudioOutput(audio_output); //added by Mike, 1 May 2015
 				mTts.stop(); //added by Mike, 1 May 2015
 				finish();
+				gotoFileChooserMainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 				startActivity(gotoFileChooserMainActivityIntent);
 			}
     	});
@@ -178,19 +192,23 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
     public void initExitButton()
     {
     	exitButton = (Button)findViewById(R.id.exit_button);
+    	exitButton.setEnabled(true);
     	exitButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+		    	exitButton.setEnabled(false);
 				new AlertDialog.Builder(ConverterActivity.this).setTitle("Exiting...")
 				.setMessage("Are you sure you want to exit?")
 				.setNegativeButton("No", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+				    	exitButton.setEnabled(true);
 					}
 				})
 				.setPositiveButton("Yes", new DialogInterface.OnClickListener() {					
 					@Override
-					public void onClick(DialogInterface dialog, int which) {						
+					public void onClick(DialogInterface dialog, int which) {			
+						Usbong4TheBlindUtils.deleteAudioOutput(audio_output); //added by Mike, 1 May 2015
 						mTts.stop(); //added by Mike, 1 May 2015
 //						finish();
 						Intent intent = new Intent(getApplicationContext(), FileChooserMainActivity.class);
@@ -239,7 +257,7 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
 				mTts.setSpeechRate(2);
 				mTts.setPitch((float)0.75);
 				mTts.speak(text, TextToSpeech.QUEUE_ADD, null); //QUEUE_FLUSH
-				mTts.synthesizeToFile(text, null, "/sdcard/usbong4theblind/output/" + "output" + Usbong4TheBlindUtils.getTimeStamp() + ".wav"); //+ Usbong4TheBlindUtils.getTimeStamp() 
+				mTts.synthesizeToFile(text, null, "/sdcard/usbong4theblind/output/" +audio_output); //+ ".wav"); //+ Usbong4TheBlindUtils.getTimeStamp() 
 				
 				update();
 			}
@@ -270,22 +288,24 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
         		ConverterActivity.this.update();
         	}
         	else {
-				new AlertDialog.Builder(ConverterActivity.this).setTitle(".txt to .wav Conversion: Complete")
-				.setMessage("Do you want to convert more text files to Audio?")
-				.setNegativeButton("No", new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-					}
-				})
-				.setPositiveButton("Yes", new DialogInterface.OnClickListener() {					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {	
-						mTts.stop(); //added by Mike, 1 May 2015
-						finish();
-						startActivity(gotoFileChooserMainActivityIntent);
-
-					}
-				}).show();
+        		if (exitButton!=null && exitButton.isEnabled()) {
+					new AlertDialog.Builder(ConverterActivity.this).setTitle(".txt to .3gp Conversion: Complete")
+						.setMessage("Do you want to convert more text files to Audio?")
+						.setNegativeButton("No", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+							}
+						})
+						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {					
+							@Override
+							public void onClick(DialogInterface dialog, int which) {	
+								mTts.stop(); //added by Mike, 1 May 2015
+								finish();
+								startActivity(gotoFileChooserMainActivityIntent);
+		
+							}
+						}).show();
+        		}
         	}
         	//ConverterActivity.this.invalidate();
         }

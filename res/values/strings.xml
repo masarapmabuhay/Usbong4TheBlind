@@ -4,14 +4,14 @@
     <string name="chooser_title">Choose a .txt file to convert into an audio file</string>
     
     <string name="file_chooser_button_text">Choose a .txt file to convert into an audio file</string>
-    <string name="file_chooser_textfield_text">Choose a .txt file to convert\ninto a .wav audio file</string>
-    <string name="instructions_textfield_text">Press the button to convert\nthe .txt file into a .wav audio file</string>
+    <string name="file_chooser_textfield_text">Choose a .txt file to convert\ninto a .3gp audio file</string>
+    <string name="instructions_textfield_text">Press the button to convert\nthe .txt file into a .3gp audio file</string>
 
     <string name="default_textview">This is the default.</string>
     <string name="back">Back</string>
     <string name="exit">Exit</string>
     
-    <string name="select_file">Choose .txt file from SD</string>  
+    <string name="select_file">Choose .txt file</string>  
     <string name="convert">Convert to Audio file</string>      
 
     <string name="powered_by_usbong_logo">powered by usbong logo</string>          

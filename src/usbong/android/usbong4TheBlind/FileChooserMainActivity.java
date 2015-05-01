@@ -73,7 +73,20 @@ public class FileChooserMainActivity extends Activity {
 		
 //		setContentView(button);
 	}
-	
+
+	//added by Mike, 1 May 2015
+    @Override
+    public void onRestart() 
+    {
+        super.onRestart();
+
+		//Reference: http://stackoverflow.com/questions/3105673/how-to-kill-an-application-with-all-its-activities
+		//; last accessed: 1 May 2015, answer by: Eric Leschinski
+		if (getIntent().getBooleanExtra("EXIT", false)) { //false is the default value; it's NOT if EXIT == false, finish();
+	         finish();
+	    }
+    }
+
 	private void showChooser() {
 		// Use the GET_CONTENT intent from the utility class
 		Intent target = FileUtils.createGetContentIntent();
