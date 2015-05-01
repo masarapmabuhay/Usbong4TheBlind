@@ -41,15 +41,6 @@
         <item name="android:gravity">center_vertical|center_horizontal</item>
     </style>	   	
 	
-	<style name="UsbongTitleParentLayout">
-		<item name="android:layout_width">fill_parent</item>
-		<item name="android:layout_height">fill_parent</item>
-        <item name="android:background">@drawable/title</item>
-        <item name="android:orientation">vertical</item>  
-        <item name="android:gravity">center</item>    
-        <item name="android:paddingTop">20px</item>			          
-    </style>	   
-
 	<style name="UsbongMainMenuParentLayout">
 		<item name="android:layout_width">fill_parent</item>
 		<item name="android:layout_height">fill_parent</item>
@@ -87,8 +78,7 @@
 		<item name="android:layout_width">fill_parent</item>
 		<item name="android:layout_height">wrap_content</item>
 		<item name="android:gravity">bottom|center</item>
-		<item name="android:layout_weight">0.1</item>
-		<item name="android:orientation">horizontal</item>
+		<item name="android:layout_weight">.1</item>		
     </style>	   
     
     <style name="UsbongDefaultBackExitButton">

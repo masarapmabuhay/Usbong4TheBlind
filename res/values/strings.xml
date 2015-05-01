@@ -11,5 +11,8 @@
     <string name="back">Back</string>
     <string name="exit">Exit</string>
     
-    <string name="select_file">Choose file from SD</string>    
+    <string name="select_file">Choose .txt file from SD</string>  
+    <string name="convert">Convert to Audio file</string>      
+
+    <string name="powered_by_usbong_logo">powered by usbong logo</string>          
 </resources>

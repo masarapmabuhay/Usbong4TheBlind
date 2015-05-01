@@ -1,73 +1,29 @@
 --Usbong4TheBlind (and the Visually Impaired) (beta)--
-ver: June 4, 2013
+ver: May 1, 2015
 
 Usbong Social Systems, Inc.
---Founder--
-Michael Syson, MSCS
+Michael Syson, Founder
 
 --Acknowledgement--
-Thanks to paulburke (ipaulpro) for afilechooser.jar 
+paulburke (ipaulpro) for afilechooser.jar 
 
---UsbongEvangelist--
-Diane Gonzales
-
---Usbong4CHAMPSVisualNovels--
-Ma. Regina Estuar, Ph.D.
-Christine Amarra, MSCS
-Jeffery Jongko, MSCS
-Lev Leetian, MSCS Student
-
---Usbong4DCAT (Tuberculosis)--
-Dennis Batangan, M.D., MS
-
---Usbong4SPED--
-Ronjo Solis, MSECE Student
-
---Usbong4Networks--
-Kenneth Llanto, MSCS
-
---Usbong4Telerehab--
-JP Talusan, MSECE Student
-Denica Oarde, MSECE Student
-
---Usbong4PediatricCare--
-Roger dela Cruz, MSCS Student
-
---Usbong4TheBlind--
-Czarina Saloma-Akpedonu, Ph.D.
-Paul Cabacungan, MSECE
-
---Usbong4Positive
-Psychology--
-Cristina Tangonan, Ph.D. Student
-
---Usbong4Aquaculture--
-Nathaniel Libatique, Ph.D.
-Cesar Pineda
-Matthew Cua, MSES Student
-Dominic Solpico, MSECE Student
-
-Advisors:
-Gregory Tangonan, Ph.D. (Ateneo Innovation Center AND COMSTE)
-Alvin Marcelo, M.D. (PhilHealth)
-Mark Ruiz (Social Entrepreneurship)
-
-Partners:
-Ateneo Innovation Center
-Congressional Commission on Science and Technology and Engineering (COMSTE)
-Ionics, EMS., Inc.
-Philippine Business for Social Progress (PBSP)
-Ephpheta Foundation for the Blind, Inc.
-Laro, Lapis, at Libro, Inc. (LLLI)
-Ateneo Java Wireless Competency Center (AJWCC)
-Alsons Aquaculture Corp.
-National Telehealth Center
-University of the Philippines-Manila
 Ateneo de Manila University
+Czarina Saloma-Akpedonu
+Agustin G. Rodriguez
+
+Ateneo Innovation Center
+Paul Cabacungan
+
+Ephpheta Foundation for the Blind, Inc.
+Carrie Palma and staff
+Lucie and friends
+
+United Nations Committee on the Rights of Persons with Disabilities
+Lauro Purcil
 
 Contact:
-Website: https://sites.google.com/site/theusbongproject
+Website: www.usbong.ph
 Mailing list: usbong-users@googlegroups.com
-Email: usbong.com@gmail.com
+Email: usbong.ph@gmail.com
 
-Copyright 2011-2013.
+Copyright 2011-2015.

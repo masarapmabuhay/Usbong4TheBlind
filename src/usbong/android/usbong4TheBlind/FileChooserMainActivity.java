@@ -51,6 +51,13 @@ public class FileChooserMainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		//Reference: http://stackoverflow.com/questions/3105673/how-to-kill-an-application-with-all-its-activities
+		//; last accessed: 1 May 2015, answer by: Eric Leschinski
+		//added by Mike, 1 May 2015
+		if (getIntent().getBooleanExtra("EXIT", false)) { //false is the default value; it's NOT if EXIT == false, finish();
+	         finish();
+	    }
+		
         setContentView(R.layout.file_chooser_main);
 
 		// Create a simple button to start the file chooser process
@@ -102,7 +109,7 @@ public class FileChooserMainActivity extends Activity {
 //						gotoConverterActivityIntent.putExtra ("file_path",file.getAbsolutePath());
 						Usbong4TheBlindUtils.myInputTextFileDirectory= file.getAbsolutePath();
 						
-						finish();
+//						finish(); //removed by Mike, 1 May 2015
 						startActivity(gotoConverterActivityIntent);
 
 					} catch (Exception e) {

@@ -31,7 +31,7 @@ import android.widget.TextView;
 import usbong.android.utils.Usbong4TheBlindUtils;
 
 public class ConverterActivity extends Activity implements TextToSpeech.OnInitListener {
-	private long updateDelay = 600;
+	private long updateDelay = 200;//600;
 	
 	private static TextToSpeech mTts;
     private Button pressMeButton;
@@ -105,12 +105,16 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
                 startActivity(installIntent);
             }
 */
+/*        	
         	if (mTts==null) {
                 Intent installIntent = new Intent();
                 installIntent.setAction(
                     TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
                 startActivity(installIntent);        		        	
             }
+        	else { //added by Mike, 1 May 2015
+    			mTts.shutdown();        		
+        	}*/
             mTts = new TextToSpeech(this, this);        		
         }
     }
@@ -164,6 +168,7 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
     	backButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				mTts.stop(); //added by Mike, 1 May 2015
 				finish();
 				startActivity(gotoFileChooserMainActivityIntent);
 			}
@@ -186,7 +191,12 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
 				.setPositiveButton("Yes", new DialogInterface.OnClickListener() {					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {						
-						finish();
+						mTts.stop(); //added by Mike, 1 May 2015
+//						finish();
+						Intent intent = new Intent(getApplicationContext(), FileChooserMainActivity.class);
+						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.putExtra("EXIT", true);
+						startActivity(intent);
 					}
 				}).show();
 			}
@@ -260,7 +270,7 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
         		ConverterActivity.this.update();
         	}
         	else {
-				new AlertDialog.Builder(ConverterActivity.this).setTitle("Text to Audio Conversion: Complete")
+				new AlertDialog.Builder(ConverterActivity.this).setTitle(".txt to .wav Conversion: Complete")
 				.setMessage("Do you want to convert more text files to Audio?")
 				.setNegativeButton("No", new DialogInterface.OnClickListener() {
 					@Override
@@ -269,7 +279,8 @@ public class ConverterActivity extends Activity implements TextToSpeech.OnInitLi
 				})
 				.setPositiveButton("Yes", new DialogInterface.OnClickListener() {					
 					@Override
-					public void onClick(DialogInterface dialog, int which) {						
+					public void onClick(DialogInterface dialog, int which) {	
+						mTts.stop(); //added by Mike, 1 May 2015
 						finish();
 						startActivity(gotoFileChooserMainActivityIntent);
 
